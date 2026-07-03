@@ -32,10 +32,10 @@ O foco foi aprender a criar uma instância EC2, configurar a rede utilizando VPC
 <details>
 <summary>📂 Evidências do laboratório</summary>
 
-- Regras do Security Group: [ec2-sg-inbound-http.png](docs/assets/ec2-sg-inbound-http.png)
-- Resumo da Instância EC2: [ec2-instance-summary-details.png](docs/assets/ec2-instance-summary-details.png)
-- Console do Boot da EC2: [ec2-instance-boot-console.png](docs/assets/ec2-instance-boot-console.png)
-- Configuração da Proteção contra Encerramento: [ec2-instance-termination-lifecycle.png](docs/assets/ec2-instance-termination-lifecycle.png)
+- Regras do Security Group: ![ec2-sg-inbound-http.png](docs/assets/ec2-sg-inbound-http.png)
+- Resumo da Instância EC2: ![ec2-instance-summary-details.png](docs/assets/ec2-instance-summary-details.png)
+- Console do Boot da EC2: ![ec2-instance-boot-console.png](docs/assets/ec2-instance-boot-console.png)
+- Configuração da Proteção contra Encerramento: ![ec2-instance-termination-lifecycle.png](docs/assets/ec2-instance-termination-lifecycle.png)
 
 </details>
 
