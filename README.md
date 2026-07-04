@@ -7,7 +7,7 @@ Ao longo dos estudos este repositório será atualizado com novos serviços, doc
 
 ## Stack Tecnológica
 
-- **Computação:** Amazon EC2 *(Até o momento)*
+- **Computação:** Amazon EC2
 - **Armazenamento:** Amazon S3 *(em breve)*
 - **Rede:** Amazon VPC, Subnets e Internet Gateway
 - **Segurança:** Security Groups e IAM Roles
