@@ -18,10 +18,9 @@ Ao longo dos estudos este repositório será atualizado com novos serviços, doc
 
 ### Contexto
 
-Primeiro laboratório voltado para criação da infraestrutura base na AWS.
 O foco foi aprender a criar uma instância EC2, configurar a rede utilizando VPC e Security Groups e entender como expor apenas os serviços necessários para acesso externo.
 
-### Troubleshooting — Governança de Recursos
+### Troubleshooting | Governança de Recursos
 
 **Problema:** Durante o encerramento do ambiente não foi possível excluir uma instância EC2 pela API da AWS.
 
@@ -36,6 +35,33 @@ O foco foi aprender a criar uma instância EC2, configurar a rede utilizando VPC
 - Resumo da Instância EC2: ![ec2-instance-summary-details.png](docs/assets/ec2-instance-summary-details.png)
 - Console do Boot da EC2: ![ec2-instance-boot-console.png](docs/assets/ec2-instance-boot-console.png)
 - Configuração da Proteção contra Encerramento: ![ec2-instance-termination-lifecycle.png](docs/assets/ec2-instance-termination-lifecycle.png)
+
+</details>
+
+## 📁 2. Arquitetura de Rede e Computação em Nuvem
+
+### Contexto
+
+O objetivo foi criar um ambiente de rede isolado e seguro, provisionando uma VPC, subnets públicas e privadas, e colocando uma instância EC2 para rodar um servido
+web.
+O foco foi entender como os componentes de rede se conversam e garantem o acesso aos recursos.
+
+### Troubleshooting | Validação de Fluxo de Rede
+
+**Problema:** Durante o provisionamento automatizado da VPC, notei que não conseguia acessar a instância EC2 via IP público.
+
+**Causa:** O Route Table da Subnet Pública não estava associado corretamente ao Internet Gateway.
+
+**Solução:** Ajustei a tabela de rotas adicionando a rota padrão `0.0.0.0/0` apontando para o Internet Gateway e verifiquei a associação da Subnet Pública com a tabel
+corrigida.
+
+<details>
+<summary>📂 Evidências do laboratório</summary>
+
+- Planejamento da Arquitetura de Rede (VPC e Subnets): ![vpc-configuracao-sucesso-aws.png](docs/assets/vpc-configuracao-sucesso-aws.png)
+- Workflow de Criação da Infraestrutura: ![vpc-criacao-sucesso-aws.png](docs/assets/vpc-criacao-sucesso-aws.png)
+- Mapa Consolidado de Recursos (Resource Map): ![vpc-recursos-verificacao-lab.png](docs/assets/vpc-recursos-verificacao-lab.png)
+- Instância EC2 em Operação (Status Check OK): ![ec2-instancia-running-websrv.png](docs/assets/ec2-instancia-running-websrv.png)
 
 </details>
 
