@@ -30,27 +30,6 @@ Ao longo dos estudos este repositório será atualizado com novos serviços, doc
 ### Próximos Serviços
 - Amazon S3
 
-## Jornada de Aprendizado
-
-```text
-Amazon EC2
-      │
-      ▼
-Amazon VPC
-      │
-      ▼
-IAM
-      │
-      ▼
-Amazon RDS
-      │
-      ▼
-AWS Systems Manager (SSM)
-      │
-      ▼
-Amazon S3 (próximo laboratório)
-```
-
 ## Lab 01 - Provisionamento de Perímetro e Hardening de Rede
 
 ### Contexto
