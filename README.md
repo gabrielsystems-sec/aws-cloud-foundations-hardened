@@ -155,6 +155,44 @@ O objetivo deste laboratório foi conhecer os principais recursos do AWS Systems
 
 </details>
 
+## Lab 06 - AWS CLI, IAM e Amazon S3
+
+### Contexto
+O objetivo deste laboratório foi administrar recursos da AWS utilizando a AWS CLI a partir de uma instância EC2. Durante as atividades, explorei a auditoria de políticas IAM, a criação de usuários, a análise de políticas JSON e a hospedagem de um site estático no Amazon S3.
+
+Além disso, utilizei scripts de automação para realizar o deploy da aplicação, compreendendo como pequenas inconsistências na configuração podem impactar o processo de publicação.
+
+### Troubleshooting | Resolução de Erros de Caminho em Scripts de Automação
+**Problema:** Ao executar o script de automação (`update-website.sh`) para realizar o deploy e upload de arquivos estáticos para o bucket S3, o terminal retornou um erro indicando que o diretório informado não existia. (`my-bucket: No such file or directory`).
+
+**Causa:** O script inicial continha uma referência estática incorreta para o nome do bucket e caminhos relativos mal mapeados na estrutura de diretórios do ambiente (`sysops-activity-files`).
+
+**Solução:** Ajustei a estrutura de diretórios, criei a árvore de trabalho correta para os arquivos estáticos, ajustei o script de deploy (`update-website.sh`) apontando para o bucket correto (`gabriel-bucket-12345`) e validei o upload recursivo com sucesso.
+
+### Aprendizados
+
+- Compreendi como utilizar a AWS CLI para administrar recursos da AWS diretamente pelo terminal.
+- Entendi como políticas IAM podem ser consultadas e analisadas por meio da AWS CLI.
+- Pratiquei a criação e o gerenciamento de usuários utilizando comandos como `create-user` e `create-login-profile`.
+- Aprendi como configurar um site estático utilizando o Amazon S3.
+- Reforcei a importância da validação de scripts de automação antes da execução de deploys.
+
+<details>
+<summary>📂 Evidências do Laboratório</summary>
+
+- **Instalação e Validação da AWS CLI v2:** ![aws-cli-install-status.png](docs/assets/aws-cli-install-status.png)
+- **Listagem e Auditoria de Políticas IAM:** ![aws-iam-policy-extraction.png](docs/assets/aws-iam-policy-extraction.png)
+- **Análise da Estrutura JSON da Política IAM:** ![aws-iam-policy-validation.png](docs/assets/aws-iam-policy-validation.png)
+- **Consulta de Políticas Gerenciadas da AWS para Amazon S3:** ![list-policies-success.png](docs/assets/list-policies-success.png)
+- **Criação e Configuração do Bucket Amazon S3:** ![s3-bucket-overview.png](docs/assets/s3-bucket-overview.png)
+- **Configuração do Static Website Hosting:** ![static-website-config-success.png](docs/assets/static-website-config-success.png)
+- **Correção e Validação do Script de Deploy (`update-website.sh`):** ![update-script-fix-success.png](docs/assets/update-script-fix-success.png)
+
+
+</details>
+
+---
+
 ## Observações
 
 Este repositório reúne minha evolução prática em Cloud Computing utilizando AWS. Cada laboratório documenta o contexto da atividade, os problemas encontrados, a investigação realizada, a solução aplicada e os principais aprendizados obtidos durante o processo.
