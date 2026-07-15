@@ -7,12 +7,15 @@ Ao longo dos estudos este repositório será atualizado com novos serviços, doc
 
 ## Stack Tecnológica
 
-| Camada | Serviços |
-|--------|----------|
+| Categoria | Serviços |
+|-----------|-----------|
 | Computação | Amazon EC2 |
 | Rede | Amazon VPC • Public Subnets • Private Subnets • Route Tables • Internet Gateway |
-| Segurança | IAM • Security Groups • AWS Systems Manager |
+| Segurança e Identidade | IAM • Security Groups |
+| Gerenciamento | AWS Systems Manager (Session Manager • Run Command • Fleet Manager • Parameter Store) |
 | Banco de Dados | Amazon RDS |
+| Armazenamento | Amazon S3 |
+| Ferramentas | AWS CLI v2 |
 
 ## Lab 01 - Provisionamento de Perímetro e Hardening de Rede
 
