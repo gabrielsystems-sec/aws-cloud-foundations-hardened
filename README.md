@@ -7,12 +7,49 @@ Ao longo dos estudos este repositório será atualizado com novos serviços, doc
 
 ## Stack Tecnológica
 
-- **Computação:** Amazon EC2
-- **Armazenamento:** Amazon S3 *(em breve)*
-- **Rede:** Amazon VPC, Subnets e Internet Gateway
-- **Segurança:** Security Groups e IAM Roles
-- **Sistema Operacional:** Amazon Linux 2023
-- **Governança:** Lifecycle Policies e AWS Trusted Advisor
+### Computação
+- Amazon EC2
+
+### Rede
+- Amazon VPC
+- Public e Private Subnets
+- Route Tables
+- Internet Gateway
+
+### Segurança
+- AWS Identity and Access Management (IAM)
+- Security Groups
+- AWS Systems Manager (Session Manager, Run Command, Fleet Manager e Parameter Store)
+
+### Banco de Dados
+- Amazon RDS
+
+### Sistema Operacional
+- Amazon Linux 2023
+
+### Próximos Serviços
+- Amazon S3
+
+## Jornada de Aprendizado
+
+```text
+Amazon EC2
+      │
+      ▼
+Amazon VPC
+      │
+      ▼
+IAM
+      │
+      ▼
+Amazon RDS
+      │
+      ▼
+AWS Systems Manager (SSM)
+      │
+      ▼
+Amazon S3 (próximo laboratório)
+```
 
 ## Lab 01 - Provisionamento de Perímetro e Hardening de Rede
 
@@ -123,8 +160,40 @@ O objetivo deste laboratório foi implementar um banco de dados gerenciado em am
 
 </details>
 
+## Lab 05 - Gerenciamento e Automação de Instâncias com AWS Systems Manager (SSM)
+
+### Contexto
+O objetivo deste laboratório foi conhecer os principais recursos do AWS Systems Manager (SSM) para administrar instâncias EC2 de forma centralizada. Durante o laboratório utilizei o Session Manager para acessar a instância sem SSH, executei comandos remotamente com o Run Command, explorei o Fleet Manager para visualizar informações da instância e utilizei o Parameter Store para armazenar configurações utilizadas pela aplicação.
+
+### Troubleshooting | Acesso Seguro à Instância
+
+**Problema:** Foi necessário acessar a instância EC2 para realizar verificações no sistema operacional sem utilizar conexões SSH.
+
+**Causa:** O acesso tradicional via SSH exige a abertura da porta 22 no Security Group e o gerenciamento de chaves privadas, aumentando a complexidade administrativa.
+
+**Solução:** Utilizei o Session Manager para estabelecer uma sessão diretamente pelo console da AWS. Dessa forma consegui executar comandos no sistema operacional, consultar informações da instância utilizando o IMDS e utilizar a AWS CLI sem necessidade de expor portas administrativas.
+
+### Aprendizados
+
+- Entendi como o Session Manager permite acessar instâncias EC2 sem utilizar conexões SSH.
+- Compreendi como o Run Command automatiza a execução de comandos remotamente em instâncias gerenciadas.
+- Observei como o Fleet Manager centraliza informações administrativas e facilita o gerenciamento da infraestrutura.
+- Aprendi que o Parameter Store permite armazenar parâmetros utilizados pelas aplicações de forma centralizada.
+- Reforcei como o AWS Systems Manager contribui para uma administração mais segura e organizada da infraestrutura.
+
+<details>
+<summary>📂 Evidências do Laboratório</summary>
+
+- **Inventário de Aplicações (Fleet Manager):** ![fleetmanager-inventory-ec2.png](docs/assets/fleetmanager-inventory-ec2.png)
+- **Deploy de Aplicação Remoto (Run Command):** ![runcommand-success-deploy.png](docs/assets/runcommand-success-deploy.png)
+- **Criação do Parâmetro de Ambiente (Parameter Store):** ![parameterstore-created-beta.png](docs/assets/parameterstore-created-beta.png)
+- **Dashboard Ativo com Feature Flag Habilitada:** ![dashboard-active-betafeature.png](docs/assets/dashboard-active-betafeature.png)
+- **Sessão Interativa Segura e Consulta via CLI (Session Manager):** ![sessionmanager-cli-troubleshooting.png](docs/assets/sessionmanager-cli-troubleshooting.png)
+
+</details>
+
 ## Observações
 
-Este repositório documenta minha evolução prática em Cloud Computing utilizando AWS, reunindo laboratórios, troubleshooting, aprendizados e decisões tomadas durante a construção da infraestrutura.
+Este repositório reúne minha evolução prática em Cloud Computing utilizando AWS. Cada laboratório documenta o contexto da atividade, os problemas encontrados, a investigação realizada, a solução aplicada e os principais aprendizados obtidos durante o processo.
 
-Meu objetivo é documentar toda a evolução dos estudos, registrando laboratórios, dificuldades encontradas, troubleshooting e boas práticas aprendidas ao longo do caminho. A ideia é transformar este repositório em uma documentação da minha evolução em AWS, Infraestrutura e Segurança.
+O objetivo é construir uma documentação contínua da minha jornada em infraestrutura, segurança e computação em nuvem, registrando não apenas os resultados, mas também o raciocínio desenvolvido ao longo dos estudos.
