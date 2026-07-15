@@ -10,11 +10,9 @@ Ao longo dos estudos este repositório será atualizado com novos serviços, doc
 | Camada | Serviços |
 |--------|----------|
 | Computação | Amazon EC2 |
-| Rede | Amazon VPC • Public/Private Subnets • Route Tables • Internet Gateway |
+| Rede | Amazon VPC • Public Subnets • Private Subnets • Route Tables • Internet Gateway |
 | Segurança | IAM • Security Groups • AWS Systems Manager |
 | Banco de Dados | Amazon RDS |
-| Sistema Operacional | Amazon Linux 2023 |
-| Armazenamento | Amazon S3 |
 
 ## Lab 01 - Provisionamento de Perímetro e Hardening de Rede
 
