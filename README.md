@@ -53,7 +53,7 @@ O foco foi aprender a criar uma instância EC2, configurar a rede utilizando VPC
 ### Contexto
 O objetivo foi criar um ambiente de rede isolado e seguro, provisionando uma VPC, subnets públicas e privadas, e colocando uma instância EC2 para rodar um servidor web. O foco foi entender como os componentes de rede se conversam e garantem o acesso aos recursos.
 
-### Troubleshooting | Validação de Fluxo de Rede
+### Troubleshooting
 **Problema:** Durante a configuração do ambiente, não foi possível acessar a instância EC2 por meio do seu IP público.
 
 **Causa:** O Route Table da Subnet Pública não estava associado corretamente ao Internet Gateway.
@@ -83,7 +83,7 @@ O objetivo foi criar um ambiente de rede isolado e seguro, provisionando uma VPC
 ### Contexto
 O objetivo deste laboratório foi aplicar princípios de Least Privilege (Menor Privilégio) e governança de identidades na AWS. Configurei uma política de senha alinhada às boas práticas da AWS para compreender o impacto das políticas de autenticação na segurança das contas. Também explorei a relação entre grupos, usuários e permissões via políticas JSON.
 
-### Troubleshooting | Validação de Acesso e Permissões
+### Troubleshooting
 **Problema:** Ao tentar realizar operações de gerenciamento em instâncias EC2, recebi repetidamente um erro de Access Denied.
 
 **Causa:** O usuário estava associado a um grupo com políticas restritivas que não permitiam ações de escrita/modificação (apenas leitura). Além disso, identifiquei a ausência de MFA obrigatório, o que não está alinhado às boas práticas recomendadas pela AWS.
@@ -115,7 +115,7 @@ O objetivo deste laboratório foi aplicar princípios de Least Privilege (Menor 
 ### Contexto
 O objetivo deste laboratório foi implementar um banco de dados gerenciado em ambiente isolado, focando na configuração de subnets, grupos de segurança e conectividade segura para aplicações web.
 
-### Troubleshooting | Validação de Conectividade
+### Troubleshooting
 **Problema:** Inicialmente, a instância da aplicação não conseguia estabelecer conexão com o banco de dados RDS.
 
 **Causa:** As regras de entrada (Inbound Rules) do Security Group do banco não estavam permitindo o tráfego na porta padrão do MySQL (3306) vindo do security group da aplicação.
@@ -146,7 +146,7 @@ O objetivo deste laboratório foi implementar um banco de dados gerenciado em am
 ### Contexto
 O objetivo deste laboratório foi conhecer os principais recursos do AWS Systems Manager (SSM) para administrar instâncias EC2 de forma centralizada. Durante o laboratório utilizei o Session Manager para acessar a instância sem SSH, executei comandos remotamente com o Run Command, explorei o Fleet Manager para visualizar informações da instância e utilizei o Parameter Store para armazenar configurações utilizadas pela aplicação.
 
-### Troubleshooting | Acesso Seguro à Instância
+### Troubleshooting
 
 **Problema:** Foi necessário acessar a instância EC2 para realizar verificações no sistema operacional sem utilizar conexões SSH.
 
@@ -182,7 +182,7 @@ O objetivo deste laboratório foi administrar recursos da AWS utilizando a AWS C
 
 Além disso, utilizei scripts de automação para realizar o deploy da aplicação, compreendendo como pequenas inconsistências na configuração podem impactar o processo de publicação.
 
-### Troubleshooting | Resolução de Erros de Caminho em Scripts de Automação
+### Troubleshooting
 **Problema:** Ao executar o script de automação (`update-website.sh`) para realizar o deploy e upload de arquivos estáticos para o bucket S3, o terminal retornou um erro indicando que o diretório informado não existia. (`my-bucket: No such file or directory`).
 
 **Causa:** O script inicial continha uma referência estática incorreta para o nome do bucket e caminhos relativos mal mapeados na estrutura de diretórios do ambiente (`sysops-activity-files`).
@@ -218,7 +218,7 @@ Além disso, utilizei scripts de automação para realizar o deploy da aplicaç�
 ### Contexto
 Provisionamento de infraestrutura web em ambiente AWS integrando VPC dedicada, automação de bootstrap via `UserData` e implantação via AWS CLI. O laboratório cobriu desde a liberação de regras de tráfego de rede até a depuração de chamadas de API e validação do serviço Apache (`httpd`).
 
-### Troubleshooting | Debug de CLI, Boot e Regras de Segurança
+### Troubleshooting
 
 - **Falha de Parâmetro na CLI (`InvalidAMIID.Malformed`):** Ao automatizar o lançamento da instância via script, a chamada retornava erro devido à variável `$AMI` nula.
 
@@ -248,7 +248,7 @@ Provisionamento de infraestrutura web em ambiente AWS integrando VPC dedicada, a
 ### Contexto
 O objetivo deste laboratório foi implantar uma arquitetura de alta disponibilidade e resiliência na AWS utilizando Application Load Balancer (ALB) e Auto Scaling Group (ASG). Durante o laboratório, configurei a distribuição de tráfego entre instâncias EC2 rodando uma stack LAMP em múltiplas zonas de disponibilidade, validei o monitoramento de saúde no Target Group e resolvi falhas de execução via AWS CLI e permissões de papéis do IAM.
 
-### Troubleshooting | Propagação do IAM e Automação de AMI
+### Troubleshooting
 
 **Problema:** Ocorreu uma falha ao criar a política de escala do Auto Scaling Group devido à ausência de permissão da Service-Linked Role, além de um erro de AMI inexistente (`InvalidAMIID.NotFound`) durante o lançamento da instância por script CLI.
 
@@ -281,7 +281,7 @@ O objetivo deste laboratório foi implantar uma arquitetura de alta disponibilid
 ### Contexto
 O objetivo deste laboratório foi criar uma infraestrutura elástica e resiliente na AWS, combinando automação via AWS CLI para provisionamento de imagem base (AMI), distribuição de tráfego com Application Load Balancer (ALB) e elasticidade automática com Auto Scaling Group (ASG) em múltiplas zonas de disponibilidade (Multi-AZ).
 
-### Troubleshooting | Provisionamento via CLI e Gatilho de Carga
+### Troubleshooting
 
 **Problema:** Necessidade de padronizar a instalação da stack web (Apache, PHP e módulo de stress) sem intervenção manual no console e validar se o Auto Scaling reage corretamente ao aumento de tráfego.
 
@@ -316,7 +316,7 @@ O objetivo deste laboratório foi criar uma infraestrutura elástica e resilient
 ### Contexto
 O objetivo deste laboratório foi implementar uma arquitetura de Disaster Recovery (DR) baseada em DNS utilizando o Amazon Route 53 com política de roteamento de *Failover* (Ativo/Passivo). Durante o laboratório, configurei registros DNS apontando para instâncias em diferentes Zonas de Disponibilidade, estabeleci monitoramento contínuo com Route 53 Health Checks e integrei alertas via Amazon SNS para redirecionar automaticamente o tráfego de um servidor primário indisponível para um servidor secundário de *standby*.
 
-### Troubleshooting | Detecção de Falha e Comutação Automática de Tráfego
+### Troubleshooting
 
 **Problema:** Foi necessário garantir que o tráfego dos usuários fosse automaticamente redirecionado para um servidor de backup caso a aplicação primária sofresse uma queda de serviço ou indisponibilidade de rede.
 
